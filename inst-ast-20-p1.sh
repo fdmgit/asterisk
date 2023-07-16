@@ -62,11 +62,11 @@ cd /root
 groupadd asterisk 
 useradd -r -d /var/lib/asterisk -g asterisk asterisk 
 usermod -aG audio,dialout asterisk 
-sudo chown -R asterisk.asterisk /etc/asterisk 
-sudo chown -R asterisk.asterisk /var/lib/asterisk
-sudo chown -R asterisk.asterisk /var/log/asterisk
-sudo chown -R asterisk.asterisk /var/spool/asterisk 
-sudo chown -R asterisk.asterisk /usr/lib/asterisk
+sudo chown -R asterisk:asterisk /etc/asterisk 
+sudo chown -R asterisk:asterisk /var/lib/asterisk
+sudo chown -R asterisk:asterisk /var/log/asterisk
+sudo chown -R asterisk:asterisk /var/spool/asterisk 
+sudo chown -R asterisk:asterisk /usr/lib/asterisk
 
 
 sed -i 's/#AST_USER="asterisk"/AST_USER="asterisk"/'  /etc/default/asterisk
@@ -90,6 +90,8 @@ systemctl restart asterisk
 echo 'Sleep now'
 sleep 10
 echo 'Sleep done'
+
+updatedb
 
 #asterisk -rvv
 
