@@ -300,11 +300,11 @@ cd /root
 groupadd asterisk 
 useradd -r -d /var/lib/asterisk -g asterisk asterisk 
 usermod -aG audio,dialout asterisk 
-chown -R asterisk.asterisk /etc/asterisk 
-chown -R asterisk.asterisk /var/lib/asterisk
-chown -R asterisk.asterisk /var/log/asterisk
-chown -R asterisk.asterisk /var/spool/asterisk 
-chown -R asterisk.asterisk /usr/lib/asterisk
+chown -R asterisk:asterisk /etc/asterisk 
+chown -R asterisk:asterisk /var/lib/asterisk
+chown -R asterisk:asterisk /var/log/asterisk
+chown -R asterisk:asterisk /var/spool/asterisk 
+chown -R asterisk:asterisk /usr/lib/asterisk
 
 sed -i 's/#AST_USER="asterisk"/AST_USER="asterisk"/'  /etc/default/asterisk
 sed -i 's/#AST_GROUP="asterisk"/AST_GROUP="asterisk"/'  /etc/default/asterisk
