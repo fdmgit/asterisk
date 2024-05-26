@@ -239,7 +239,7 @@ sntp -c 0.pool.ntp.org
 
 apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions unzip shared-mime-info
 curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
-sh setup-repos.sh
+sh setup-repos.sh -y
 apt-get install webmin --install-recommends -y
 
 
