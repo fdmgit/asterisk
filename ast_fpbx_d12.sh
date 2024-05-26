@@ -190,6 +190,7 @@ inst_locate () {
 ssh_hard
 server_env
 set_swap
+inst_webmin
 
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 set -e
@@ -1246,7 +1247,7 @@ if [ ! $nofpbx ] ; then
 fi
 
 inst_locate
-inst_webmin
+#inst_webmin
 set_certbot
 closing_msg
 
