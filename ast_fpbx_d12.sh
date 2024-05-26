@@ -121,6 +121,10 @@ inst_webmin () {
 
 closing_msg () {
 # Closing message after completion of installation
+    cd /root
+    rm ast_fpbx_d12.sh
+    rm setup-repos.sh
+
     
     # Retrieve the IP address
     ip_address=$(hostname -I | awk '{print $1}')
