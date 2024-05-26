@@ -161,6 +161,7 @@ set_swap () {
 
 ssh_hard
 server_env
+set_swap
 
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 set -e
