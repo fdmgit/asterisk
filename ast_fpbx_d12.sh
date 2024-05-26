@@ -118,8 +118,6 @@ closing_msg () {
 ssh_hard
 server_env
 
-
-
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 set -e
 SCRIPTVER="1.3"
