@@ -102,6 +102,14 @@ closing_msg () {
 #####################################################################################
 #                                               FreePBX 17                          #
 #####################################################################################
+
+#### Pre-installation
+
+ssh_hard
+server_env
+
+
+
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 set -e
 SCRIPTVER="1.3"
@@ -329,7 +337,7 @@ install_asterisk() {
 		"addons-ooh323"
 		"core"
 		"curl"
-		"dahdi"
+                "dahdi"
 		"doc"
 		"odbc"
 		"ogg"
@@ -339,7 +347,6 @@ install_asterisk() {
 		"snmp"
 		"speex"
 		"sqlite3"
-		"res-digium-phone"
 		"voicemail"
 	)
 
