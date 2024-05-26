@@ -135,6 +135,8 @@ closing_msg () {
     echo -e "${YELLOW}ATTENTION\\n"
     echo -e "${GREEN}The port for SSH has changed. To login use the following comand:\\n"
     echo -e "        ssh root@${ip_address} -p 49153${NC}\\n"
+    echo ""
+    echo -e "${GREEN}To login in Webmin use https://${ip_address}:10000${NC}\\n"
 }
 
 ######################################
