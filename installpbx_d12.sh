@@ -92,7 +92,7 @@ ssh_hard () {
 	sed -i "s|session    required     pam_env.so user_readenv=1 envfile=/etc/default/locale|session    required     pam_env.so envfile=/etc/default/locale|g" /etc/pam.d/sshd
 
     # Restart SSH: Port changed to 49153
-    #systemctl restart sshd
+    systemctl restart sshd
 }
 
 server_env () {
