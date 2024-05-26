@@ -51,6 +51,11 @@ LCYAN=$(echo -en '\001\033[01;36m\002')
 
 ssh_hard () {
 
+        apt update
+	echo "Updated !"
+        apt upgrade -y
+	echo "Upgraded !!!!!!"
+
 	###################################
 	#### SSH Hardening
 	#### https://sshaudit.com
@@ -82,20 +87,16 @@ server_env () {
 
     cd /root
     wget https://raw.githubusercontent.com/fdmgit/asterisk/main/bashrc.ini
-	cp bashrc.ini /root/.bashrc
-	cp bashrc.ini /etc/skel/.bashrc
-	rm /root/bashrc.ini
-	source ./bashrc
+    cp bashrc.ini /root/.bashrc
+    cp bashrc.ini /etc/skel/.bashrc
+    rm /root/bashrc.ini
+    source ./bashrc
    
     echo "deb http://deb.debian.org/debian/ bookworm-backports main" | tee -a /etc/apt/sources.list   
 
-    apt update
-    apt upgrade -y
-    
-    
-	###################################
-	#### Setup root key file
-	###################################
+    ###################################
+    #### Setup root key file
+    ###################################
 
 	if [ -d /root/.ssh ]; then 
 		echo ".ssh exists"
