@@ -133,6 +133,25 @@ closing_msg () {
     echo -e "${GREEN}To login in Webmin use https://${ip_address}:10000${NC}\\n"
 }
 
+set_swap () {
+
+###########################
+#          Set Swap Space
+###########################
+
+    cd /root
+    swapon --show > swapon.out       ## check if swap exists
+    FILESIZE=$(stat -c%s swapon.out)
+
+    if [[ "$FILESIZE" == "0" ]]; then      ## swap space does not exist
+       fallocate -l 1G /swapfile
+       chmod 600 /swapfile
+       mkswap /swapfile
+       swapon /swapfile
+       echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
+    fi
+    rm swapon.out
+}
 
 #####################################################################################
 #                                               FreePBX 17                          #
