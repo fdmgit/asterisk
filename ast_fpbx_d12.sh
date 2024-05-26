@@ -81,6 +81,7 @@ ssh_hard () {
 
     # Restart SSH: Port changed to 49153
     systemctl restart sshd
+    wait 10
 }
 
 server_env () {
@@ -91,6 +92,7 @@ server_env () {
     cp bashrc.ini /etc/skel/.bashrc
     rm /root/bashrc.ini
     source .bashrc
+    wait 20
 
     ###################################
     #### Setup root key file
@@ -120,6 +122,7 @@ inst_webmin () {
 	curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
 	echo "y" | sh setup-repos.sh
 	apt-get install webmin --install-recommends -y
+        wait 30
  }
 
 closing_msg () {
@@ -191,6 +194,7 @@ inst_f2b () {
       dpkg -i fail2ban_1.1.0-1.upstream1_all.deb
       rm fail2ban_1.1.0-1.upstream1_all.deb
       systemctl restart fail2ban
+      wait 20
 }
 
 #####################################################################################
