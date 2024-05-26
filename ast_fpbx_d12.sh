@@ -92,8 +92,6 @@ server_env () {
     rm /root/bashrc.ini
     source ./.bashrc
 
-exit
-
     ###################################
     #### Setup root key file
     ###################################
