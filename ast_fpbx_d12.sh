@@ -1245,3 +1245,6 @@ inst_locate
 inst_webmin
 set_certbot
 closing_msg
+
+reboot
+
