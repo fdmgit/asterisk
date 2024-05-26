@@ -88,6 +88,10 @@ server_env () {
 	source ./bashrc
    
     echo "deb http://deb.debian.org/debian/ bookworm-backports main" | tee -a /etc/apt/sources.list   
+
+    apt update
+    apt upgrade -y
+    
     
 	###################################
 	#### Setup root key file
