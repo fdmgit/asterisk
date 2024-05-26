@@ -90,7 +90,7 @@ server_env () {
     cp bashrc.ini /root/.bashrc
     cp bashrc.ini /etc/skel/.bashrc
     rm /root/bashrc.ini
-    source ./.bashrc
+    source .bashrc
 
     ###################################
     #### Setup root key file
