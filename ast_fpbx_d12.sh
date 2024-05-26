@@ -82,6 +82,17 @@ server_env () {
 	fi
 }
 
+inst_webmin () {
+
+	###########################
+	#  Install Webmin
+	###########################
+
+	apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions unzip shared-mime-info
+	curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
+	echo "y" | sh setup-repos.sh
+	apt-get install webmin --install-recommends -y
+ }
 
 closing_msg () {
 # Closing message after completion of installation
