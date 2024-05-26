@@ -619,7 +619,7 @@ check_kernel_compatibility() {
 }
 
 check_services() {
-    services=("fail2ban" "iptables")
+    services=("iptables")
     for service in "${services[@]}"; do
         service_status=$(systemctl is-active "$service")
         if [[ "$service_status" != "active" ]]; then
@@ -914,7 +914,6 @@ DEPPKGS=("redis-server"
 	"npm"
 	"ipset"
 	"iptables"
-	"fail2ban"
 	"htop"
 	"liburiparser-dev"
 	"postfix"
@@ -1143,11 +1142,6 @@ touch /etc/asterisk/extensions_override_freepbx.conf
 touch /etc/asterisk/extensions_additional.conf
 touch /etc/asterisk/extensions_custom.conf
 chown -R asterisk:asterisk /etc/asterisk
-
-setCurrentStep "Restating fail2ban"
-log "Restarting fail2ban "
-/usr/bin/systemctl restart fail2ban  >> $log
-
 
 if [ $nofpbx ] ; then
 	message "Skipping FreePBX 17 fresh tarball installation due to nofreepbx option"
