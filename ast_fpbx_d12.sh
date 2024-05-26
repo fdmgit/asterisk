@@ -81,7 +81,7 @@ ssh_hard () {
 
     # Restart SSH: Port changed to 49153
     systemctl restart sshd
-    wait 10
+    sleep 10
 }
 
 server_env () {
@@ -92,7 +92,7 @@ server_env () {
     cp bashrc.ini /etc/skel/.bashrc
     rm /root/bashrc.ini
     source .bashrc
-    wait 20
+    sleep 20
 
     ###################################
     #### Setup root key file
@@ -122,7 +122,7 @@ inst_webmin () {
 	curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
 	echo "y" | sh setup-repos.sh
 	apt-get install webmin --install-recommends -y
-        wait 30
+        sleep 30
  }
 
 closing_msg () {
