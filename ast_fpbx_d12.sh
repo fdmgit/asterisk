@@ -51,10 +51,10 @@ LCYAN=$(echo -en '\001\033[01;36m\002')
 
 ssh_hard () {
 
+        echo "deb http://deb.debian.org/debian/ bookworm-backports main" | tee -a /etc/apt/sources.list   
+
         apt update
-	echo "Updated !"
         apt upgrade -y
-	echo "Upgraded !!!!!!"
 
 	###################################
 	#### SSH Hardening
@@ -91,8 +91,6 @@ server_env () {
     cp bashrc.ini /etc/skel/.bashrc
     rm /root/bashrc.ini
     source ./bashrc
-   
-    echo "deb http://deb.debian.org/debian/ bookworm-backports main" | tee -a /etc/apt/sources.list   
 
     ###################################
     #### Setup root key file
