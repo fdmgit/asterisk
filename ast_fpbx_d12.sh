@@ -81,7 +81,7 @@ ssh_hard () {
 
     # Restart SSH: Port changed to 49153
     systemctl restart sshd
-    sleep 10
+    sleep 5
 }
 
 server_env () {
@@ -92,7 +92,7 @@ server_env () {
     cp bashrc.ini /etc/skel/.bashrc
     rm /root/bashrc.ini
     source .bashrc
-    sleep 20
+    sleep 10
 
     ###################################
     #### Setup root key file
