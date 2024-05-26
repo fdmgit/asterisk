@@ -181,6 +181,14 @@ inst_locate () {
 
 }
 
+inst_f2b () {
+      cd /root
+      wget https://github.com/fail2ban/fail2ban/releases/download/1.1.0/fail2ban_1.1.0-1.upstream1_all.deb
+      dpkg -i fail2ban_1.1.0-1.upstream1_all.deb
+      rm fail2ban_1.1.0-1.upstream1_all.deb
+      systemctl restart fail2ban
+}
+
 #####################################################################################
 #                                               FreePBX 17                          #
 #####################################################################################
@@ -190,6 +198,7 @@ inst_locate () {
 ssh_hard
 server_env
 set_swap
+inst_f2b
 inst_webmin
 
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
