@@ -189,9 +189,10 @@ inst_locate () {
 
 inst_f2b () {
       cd /root
-      apt install python3-systemd -y
+      #apt install python3-systemd -y
       wget https://github.com/fail2ban/fail2ban/releases/download/1.1.0/fail2ban_1.1.0-1.upstream1_all.deb
-      dpkg -i fail2ban_1.1.0-1.upstream1_all.deb
+      #dpkg -i fail2ban_1.1.0-1.upstream1_all.deb
+      apt install ./fail2ban_1.1.0-1.upstream1_all.deb -y
       rm fail2ban_1.1.0-1.upstream1_all.deb
       systemctl restart fail2ban
       wait 20
