@@ -190,8 +190,8 @@ inst_locate () {
 inst_f2b () {
       cd /root
       wget https://github.com/fail2ban/fail2ban/releases/download/1.1.0/fail2ban_1.1.0-1.upstream1_all.deb
-      wait 10
-      sudo apt install /root/fail2ban_1.1.0-1.upstream1_all.deb -y
+      chown _apt:root /root/fail2ban_1.1.0-1.upstream1_all.deb -y
+      apt install /root/fail2ban_1.1.0-1.upstream1_all.deb -y >> "$log" 2>&1
       rm fail2ban_1.1.0-1.upstream1_all.deb
       systemctl restart fail2ban
       wait 20
