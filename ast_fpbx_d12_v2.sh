@@ -1167,7 +1167,7 @@ chown -R asterisk:asterisk /etc/asterisk
 
 setCurrentStep "Restarting fail2ban"
 log "Restarting fail2ban "
-/usr/bin/systemctl restart fail2ban  >> $log
+#/usr/bin/systemctl restart fail2ban  >> $log
 
 
 if [ $nofpbx ] ; then
