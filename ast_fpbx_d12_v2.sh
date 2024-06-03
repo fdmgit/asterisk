@@ -1166,9 +1166,9 @@ touch /etc/asterisk/extensions_additional.conf
 touch /etc/asterisk/extensions_custom.conf
 chown -R asterisk:asterisk /etc/asterisk
 
-setCurrentStep "Restating fail2ban"
-log "Restarting fail2ban "
-/usr/bin/systemctl restart fail2ban  >> $log
+#setCurrentStep "Restarting fail2ban"
+#log "Restarting fail2ban "
+#/usr/bin/systemctl restart fail2ban  >> $log
 
 
 if [ $nofpbx ] ; then
