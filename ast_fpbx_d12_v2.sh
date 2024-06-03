@@ -91,8 +91,7 @@ server_env () {
     cp bashrc.ini /root/.bashrc
     cp bashrc.ini /etc/skel/.bashrc
     rm /root/bashrc.ini
-    source .bashrc
-    sleep 10
+    . .bashrc
 
     ###################################
     #### Setup root key file
@@ -190,12 +189,10 @@ inst_locate () {
 inst_f2b () {
       cd /root
       wget https://github.com/fail2ban/fail2ban/releases/download/1.1.0/fail2ban_1.1.0-1.upstream1_all.deb
-      chown _apt:root /root/fail2ban_1.1.0-1.upstream1_all.deb
       apt install ./fail2ban_1.1.0-1.upstream1_all.deb -y 
-      #rm fail2ban_1.1.0-1.upstream1_all.deb
+      rm fail2ban_1.1.0-1.upstream1_all.deb
       systemctl restart fail2ban
-      #wait 20
-      exit
+      wait 20
 }
 
 
