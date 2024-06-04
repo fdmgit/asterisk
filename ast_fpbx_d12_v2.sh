@@ -1276,7 +1276,7 @@ if [ ! $nofpbx ] ; then
 fi
 
 inst_locate
-inst_f2b
+#inst_f2b
 #inst_webmin
 #set_certbot
 closing_msg
