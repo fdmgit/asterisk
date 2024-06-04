@@ -263,6 +263,7 @@ inst_f2b () {
 
 #### Pre-installation
 
+get_fqdn_pw
 ssh_hard
 server_env
 set_swap
