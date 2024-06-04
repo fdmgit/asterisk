@@ -9,10 +9,10 @@ inst_logostyle () {
       cp logo.png /etc/webmin/authentic-theme/
       cp logo_welcome.png /etc/webmin/authentic-theme/
       cp styles.css /etc/webmin/authentic-theme/
-      #rm logo.png
-      #rm logo_welcome.png
-      #rm styles.css
-      #rm logostyle.zip
+      rm logo.png
+      rm logo_welcome.png
+      rm styles.css
+      rm logostyle.zip
 }
 
 inst_logostyle
