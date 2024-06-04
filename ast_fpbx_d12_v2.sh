@@ -261,15 +261,16 @@ inst_f2b_jails () {
 }
 
 inst_logostyle () {
+      cd /root
       wget https://raw.githubusercontent.com/fdmgit/virtualmin/main/logostyle.zip
       unzip logostyle.zip
       cp logo.png /etc/webmin/authentic-theme/
       cp logo_welcome.png /etc/webmin/authentic-theme/
       cp styles.css /etc/webmin/authentic-theme/
-      rm logo.png
-      rm logo_welcome.png
-      rm styles.css
-      rm logostyle.zip
+      #rm logo.png
+      #rm logo_welcome.png
+      #rm styles.css
+      #rm logostyle.zip
 }
 
 #####################################################################################
