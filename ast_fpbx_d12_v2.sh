@@ -162,21 +162,10 @@ set_swap () {
     rm swapon.out
 }
 
-set_certbot () {
-
-    ###########################
-    #  Install Certbot
-    ###########################
-
-    apt-get -y install snapd
-
-    export PATH=$PATH:/snap/bin
-
-    /usr/bin/snap install core
-    /usr/bin/snap refresh core
-    /usr/bin/snap install --classic certbot
-    ln -s /snap/bin/certbot /usr/bin/certbot
+inst_certbot () {
+     apt install certbot -y
 }
+
 
 inst_locate () {
 
@@ -1275,10 +1264,10 @@ if [ ! $nofpbx ] ; then
   fwconsole motd
 fi
 
+inst_certbot
 inst_locate
 #inst_f2b
 #inst_webmin
-#set_certbot
 closing_msg
 
 reboot
