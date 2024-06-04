@@ -49,6 +49,73 @@ LCYAN=$(echo -en '\001\033[01;36m\002')
 #                   Functions                    #
 ##################################################
 
+print_header () {
+   clear
+   echo ""
+   echo -e "${YELLOW}     Welcome to the Asterisk / FreePBX System installer!${NC}"
+   echo -e "${GREEN}"
+   echo "     I need to ask you a few questions before starting the setup."
+   echo ""
+}
+
+print_conf () {
+   clear
+   echo ""
+   echo -e "${YELLOW}     Asterisk / FreePBX System installer${NC}"
+   echo -e "${GREEN}"
+   echo "     Your input is:"
+   echo ""
+}
+
+get_fqdn_pw () {
+   rpasswd=""
+   fqdn=""
+
+   print_header
+
+   until [ ${#rpasswd} -gt 11 ]; do
+       echo -en "${GREEN}     Enter new root password [min. length is 12 char]: ${YELLOW} "
+       read -e -i "${rpasswd}" rpasswd
+       if [ ${#rpasswd} -lt 12 ]; then
+           print_header
+	   echo -e "${LRED}     Password has too few characters"
+       fi
+    done
+
+    print_header
+    echo -e "${GREEN}     Enter new root password [min. length is 12 char]:  ${YELLOW}${rpasswd}"
+
+    until [[ "$fqdn" =~ ^.*\..*\..*$ ]]; do
+    #   print_header
+    #   echo -e "${GREEN}     Enter new root password [min. length is 12 char]:  ${YELLOW}${rpasswd}"
+        echo -en "${GREEN}     Enter a full qualified domain name:               ${YELLOW} "
+        read -e -i "${fqdn}" fqdn
+        if [[ "$fqdn" =~ ^.*\..*\..*$ ]]; then
+            print_conf
+            echo -e "${GREEN}     New root password:           ${YELLOW}${rpasswd}"
+            echo -e "${GREEN}     Full qualified domain name:  ${YELLOW}${fqdn}"
+        else
+            print_header
+            echo -e "${GREEN}     Enter new root password [min. length is 12 char]:  ${YELLOW}${rpasswd}"
+            echo ""
+            echo -e "${LRED}     The FQDN is not correct"   
+        fi
+     done
+
+     echo -e "${NC}"
+     read -r -p "     Ready to start installation [Y/n] ? " start_inst
+     if [[ "$start_inst" = "" ]]; then
+         start_inst="Y"
+     fi
+     if [[ "$start_inst" != [yY] ]]; then
+         clear
+         exit
+     fi   
+     hostnamectl set-hostname $fqdn  # set hostname
+     echo "root:${rpasswd}" | chpasswd    # set root password -
+}
+
+
 ssh_hard () {
 
         echo "deb http://deb.debian.org/debian/ bookworm-backports main" | tee -a /etc/apt/sources.list   
