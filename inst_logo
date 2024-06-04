@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 inst_logostyle () {
       cd /root
