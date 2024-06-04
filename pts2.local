@@ -1,0 +1,15 @@
+
+[sshd]
+
+# To use more aggressive sshd modes set filter parameter "mode" in jail.local:
+# normal (default), ddos, extra or aggressive (combines all).
+# See "tests/files/logs/sshd" or "filter.d/sshd.conf" for usage example and details.
+mode     = ddos
+enabled  = true
+port     = ssh, 49153
+backend  = systemd
+filter   = sshd[journalmatch='_COMM=sshd']
+bantime  = 24h
+findtime = 125m
+maxretry = 3
+
