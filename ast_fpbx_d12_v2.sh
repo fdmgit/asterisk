@@ -262,6 +262,8 @@ inst_f2b_jails () {
 
 inst_logostyle () {
       cd /root
+      systemctl restart webmin
+      wait 10
       wget https://raw.githubusercontent.com/fdmgit/virtualmin/main/logostyle.zip
       unzip logostyle.zip
       cp logo.png /etc/webmin/authentic-theme/
