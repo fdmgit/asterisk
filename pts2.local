@@ -1,5 +1,3 @@
-[Definition]
-allowipv6 = yes
 
 [ssh-iptables]
 enabled  = true
