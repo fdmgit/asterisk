@@ -3,6 +3,6 @@ allowipv6 = yes
 
 [ssh-iptables]
 enabled  = true
-port      = ssh, 49153
+port      = ssh,49153
 bantime   = 24h
 findtime  = 125m
