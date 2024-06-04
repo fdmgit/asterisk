@@ -1,3 +1,4 @@
+[DEFAULT]
 # "ignoreself" specifies whether the local resp. own IP addresses should be ignored
 # (default is true). Fail2ban will not ban a host which matches such addresses.
 #ignoreself = true
