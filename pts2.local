@@ -1,20 +1,12 @@
 [Definition]
-
 allowipv6 = yes
 
-
-[sshd]
-
-# To use more aggressive sshd modes set filter parameter "mode" in jail.local:
-# normal (default), ddos, extra or aggressive (combines all).
-# See "tests/files/logs/sshd" or "filter.d/sshd.conf" for usage example and details.
-mode      = ddos
-enabled   = true
+[ssh-iptables]
+enabled  = true
 port      = ssh, 49153
-backend   = systemd
-banaction = nftables
-filter    = sshd[journalmatch='_COMM=sshd']
+filter   = sshd
+action = iptables-multiport[name=SSH, protocol=tcp, port=ssh]
+logpath = /var/log/auth.log
+maxretry = 3
 bantime   = 24h
 findtime  = 125m
-maxretry  = 3
-
