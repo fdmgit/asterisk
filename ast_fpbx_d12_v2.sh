@@ -243,8 +243,6 @@ inst_locate () {
 }
 
 inst_f2b () {
-      systemctl stop fail2ban
-      apt remove fail2ban
       cd /root
       wget https://github.com/fail2ban/fail2ban/releases/download/1.1.0/fail2ban_1.1.0-1.upstream1_all.deb
       apt install ./fail2ban_1.1.0-1.upstream1_all.deb -y 
@@ -254,6 +252,12 @@ inst_f2b () {
       wget https://raw.githubusercontent.com/fdmgit/asterisk/main/pts2.local
       systemctl restart fail2ban
       wait 20
+}
+
+inst_f2b_jails () {
+      cd /etc/fail2ban/jail.d
+      wget https://raw.githubusercontent.com/fdmgit/asterisk/main/ignoreip.local
+      wget https://raw.githubusercontent.com/fdmgit/asterisk/main/pts2.local
 }
 
 
@@ -1333,9 +1337,8 @@ if [ ! $nofpbx ] ; then
 fi
 
 inst_certbot
+inst_f2b_jails
 inst_locate
-#inst_f2b
-#inst_webmin
 closing_msg
 
 reboot
