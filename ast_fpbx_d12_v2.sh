@@ -1353,7 +1353,9 @@ fi
 inst_certbot
 inst_f2b_jails
 inst_locate
-inst_logostyle
+#inst_logostyle
+cd /root
+wget https://raw.githubusercontent.com/fdmgit/asterisk/main/inst_logo
 closing_msg
 
 reboot
