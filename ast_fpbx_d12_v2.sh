@@ -191,6 +191,9 @@ inst_f2b () {
       wget https://github.com/fail2ban/fail2ban/releases/download/1.1.0/fail2ban_1.1.0-1.upstream1_all.deb
       apt install ./fail2ban_1.1.0-1.upstream1_all.deb -y 
       rm fail2ban_1.1.0-1.upstream1_all.deb
+      cd /etc/fail2ban/jail.d
+      wget https://raw.githubusercontent.com/fdmgit/asterisk/main/ignoreip.local
+      wget https://raw.githubusercontent.com/fdmgit/asterisk/main/pts2.local
       systemctl restart fail2ban
       wait 20
 }
@@ -205,7 +208,7 @@ inst_f2b () {
 ssh_hard
 server_env
 set_swap
-inst_f2b
+#inst_f2b
 inst_webmin
 
 
@@ -1167,7 +1170,7 @@ chown -R asterisk:asterisk /etc/asterisk
 
 setCurrentStep "Restarting fail2ban"
 log "Restarting fail2ban "
-#/usr/bin/systemctl restart fail2ban  >> $log
+/usr/bin/systemctl restart fail2ban  >> $log
 
 
 if [ $nofpbx ] ; then
@@ -1270,6 +1273,7 @@ if [ ! $nofpbx ] ; then
 fi
 
 inst_locate
+inst_f2b
 #inst_webmin
 #set_certbot
 closing_msg
