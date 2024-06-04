@@ -1,3 +1,7 @@
+[Definition]
+
+allowipv6 = yes
+
 
 [sshd]
 
