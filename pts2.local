@@ -4,9 +4,5 @@ allowipv6 = yes
 [ssh-iptables]
 enabled  = true
 port      = ssh, 49153
-filter   = sshd
-action = iptables-multiport[name=SSH, protocol=tcp, port=ssh]
-logpath = /var/log/auth.log
-maxretry = 3
 bantime   = 24h
 findtime  = 125m
