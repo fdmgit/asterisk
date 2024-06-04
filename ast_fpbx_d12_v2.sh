@@ -260,21 +260,6 @@ inst_f2b_jails () {
       wget https://raw.githubusercontent.com/fdmgit/asterisk/main/pts2.local
 }
 
-inst_logostyle () {
-      cd /root
-      systemctl restart webmin
-      wait 10
-      wget https://raw.githubusercontent.com/fdmgit/virtualmin/main/logostyle.zip
-      unzip logostyle.zip
-      cp logo.png /etc/webmin/authentic-theme/
-      cp logo_welcome.png /etc/webmin/authentic-theme/
-      cp styles.css /etc/webmin/authentic-theme/
-      #rm logo.png
-      #rm logo_welcome.png
-      #rm styles.css
-      #rm logostyle.zip
-}
-
 #####################################################################################
 #                                               FreePBX 17                          #
 #####################################################################################
