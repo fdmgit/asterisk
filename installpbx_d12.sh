@@ -276,10 +276,10 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install postfix
 
 cd /usr/src/
 
-wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-20-current.tar.gz
-tar xvf asterisk-20-current.tar.gz
-rm asterisk-20-current.tar.gz
-cd asterisk-20*/
+wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-21-current.tar.gz
+tar xvf asterisk-21-current.tar.gz
+rm asterisk-21-current.tar.gz
+cd asterisk-21*/
 
 
 contrib/scripts/get_mp3_source.sh
@@ -450,7 +450,7 @@ fwconsole ma delete firewall
 fwconsole ma delete sms
 fwconsole ma delete xmpp
 
-##### Install patches for Debian 11
+##### Install patches for Debian 12
 cd /var/www/html/admin/modules/ucp/node/lib
 mv config.js config.js.orig
 mv freepbx.js freepbx.js.orig
