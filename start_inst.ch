@@ -241,6 +241,10 @@ inst_f2b_jails () {
       wget https://raw.githubusercontent.com/fdmgit/asterisk/main/pts2.local
 }
 
+inst_base () {
+      apt install curl rsyslog -y
+}
+
 #####################################################################################
 #                                               FreePBX 17                          #
 #####################################################################################
