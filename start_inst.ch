@@ -140,6 +140,7 @@ server_env () {
     cp bashrc.ini /etc/skel/.bashrc
     rm /root/bashrc.ini
     . .bashrc
+    apt install curl sudo -y
 
     ###################################
     #### Setup root key file
@@ -242,7 +243,7 @@ inst_f2b_jails () {
 }
 
 inst_base () {
-      apt install curl rsyslog -y
+      apt install curl sudo rsyslog -y
 }
 
 #####################################################################################
@@ -257,3 +258,4 @@ server_env
 set_swap
 #inst_f2b
 inst_webmin
+inst_base
