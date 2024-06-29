@@ -1,4 +1,4 @@
- end_inst.sh >#!/bin/bash
+ #!/bin/bash
 
 cd /root
 wget https://raw.githubusercontent.com/fdmgit/asterisk/main/start_inst.ch
