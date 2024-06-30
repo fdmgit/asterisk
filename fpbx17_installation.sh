@@ -11,6 +11,7 @@ cat start_inst.sh fpbx_deb_inst.sh end_inst.sh > full_fpbx17_inst.sh
 
 chmod +x full_fpbx17_inst.sh
 
+#rm fpbx.tmp
 #rm start_inst.sh
 #rm fpbx_deb_inst.sh
 #rm end_inst.sh
