@@ -258,15 +258,23 @@ function inst_logo_styles () {
 ###################################
 
     cd /root
-    wget https://raw.githubusercontent.com/fdmgit/virtualmin/main/logostyle.zip
-    unzip logostyle.zip
-    cp logo.png /etc/webmin/authentic-theme/
-    cp logo_welcome.png /etc/webmin/authentic-theme/
-    cp styles.css /etc/webmin/authentic-theme/
-    rm logo.png
-    rm logo_welcome.png
-    rm styles.css
-    rm logostyle.zip
+
+cat >> /root/inst_logo_styles.sh <<'EOF'
+
+wget https://raw.githubusercontent.com/fdmgit/virtualmin/main/logostyle.zip
+unzip logostyle.zip
+cp logo.png /etc/webmin/authentic-theme/
+cp logo_welcome.png /etc/webmin/authentic-theme/
+cp styles.css /etc/webmin/authentic-theme/
+rm logo.png
+rm logo_welcome.png
+rm styles.css
+rm logostyle.zip
+rm inst_logo_styles.sh
+
+EOF
+
+    chmod +x /root/inst_logo_styles.sh
 
 }
 
