@@ -99,10 +99,10 @@ get_fqdn_pw () {
 
 ssh_hard () {
 
-        echo "deb http://deb.debian.org/debian/ bookworm-backports main" | tee -a /etc/apt/sources.list   
+    echo "deb http://deb.debian.org/debian/ bookworm-backports main" | tee -a /etc/apt/sources.list   
 
-        apt update
-        apt upgrade -y
+    apt update
+    apt upgrade -y
 
 	###################################
 	#### SSH Hardening
@@ -170,11 +170,15 @@ inst_webmin () {
 	curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
 	echo "y" | sh setup-repos.sh
 	apt-get install webmin --install-recommends -y
-        sleep 30
+    sleep 30
  }
 
 closing_msg () {
+
+######################################################
 # Closing message after completion of installation
+######################################################
+
     cd /root
     rm ast_fpbx_d12_v2.sh
     rm setup-repos.sh
@@ -184,17 +188,18 @@ closing_msg () {
     ip_address=$(hostname -I | awk '{print $1}')
     
     echo ""
-   # echo -e "${YELLOW}ATTENTION\\n"
-   # echo -e "${GREEN}The port for SSH has changed. To login use the following comand:\\n"
-   # echo -e "        ssh root@${ip_address} -p 49153${NC}\\n"
-   # echo ""
+    
+    echo -e "${YELLOW}ATTENTION\\n"
+    echo -e "${GREEN}The port for SSH has changed. To login use the following comand:\\n"
+    echo -e "        ssh root@${ip_address} -p 49153${NC}\\n"
+    echo ""
     echo -e "${GREEN}To login in Webmin use https://${ip_address}:10000${NC}\\n"
 }
 
 set_swap () {
 
 ###########################
-#          Set Swap Space
+#      Set Swap Space
 ###########################
 
     cd /root
@@ -202,49 +207,69 @@ set_swap () {
     FILESIZE=$(stat -c%s swapon.out)
 
     if [[ "$FILESIZE" == "0" ]]; then      ## swap space does not exist
-       fallocate -l 1G /swapfile
-       chmod 600 /swapfile
-       mkswap /swapfile
-       swapon /swapfile
-       echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
+        fallocate -l 1G /swapfile
+        chmod 600 /swapfile
+        mkswap /swapfile
+        swapon /swapfile
+        echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
     fi
     rm swapon.out
 }
 
 inst_certbot () {
-     apt install certbot -y
+    apt install certbot -y
 }
 
 
 inst_locate () {
 
-     apt-get install plocate -y
-     updatedb
-     timedatectl set-timezone Europe/Zurich
+    apt-get install plocate -y
+    updatedb
+    timedatectl set-timezone Europe/Zurich
 
 }
 
 inst_f2b () {
-      cd /root
-      wget https://github.com/fail2ban/fail2ban/releases/download/1.1.0/fail2ban_1.1.0-1.upstream1_all.deb
-      apt install ./fail2ban_1.1.0-1.upstream1_all.deb -y 
-      rm fail2ban_1.1.0-1.upstream1_all.deb
-      cd /etc/fail2ban/jail.d
-      wget https://raw.githubusercontent.com/fdmgit/asterisk/main/ignoreip.local
-      wget https://raw.githubusercontent.com/fdmgit/asterisk/main/pts2.local
-      systemctl restart fail2ban
-      wait 20
+    cd /root
+    wget https://github.com/fail2ban/fail2ban/releases/download/1.1.0/fail2ban_1.1.0-1.upstream1_all.deb
+    apt install ./fail2ban_1.1.0-1.upstream1_all.deb -y 
+    rm fail2ban_1.1.0-1.upstream1_all.deb
+    cd /etc/fail2ban/jail.d
+    wget https://raw.githubusercontent.com/fdmgit/asterisk/main/ignoreip.local
+    wget https://raw.githubusercontent.com/fdmgit/asterisk/main/pts2.local
+    systemctl restart fail2ban
+    wait 20
 }
 
 inst_f2b_jails () {
-      cd /etc/fail2ban/jail.d
-      wget https://raw.githubusercontent.com/fdmgit/asterisk/main/ignoreip.local
-      wget https://raw.githubusercontent.com/fdmgit/asterisk/main/pts2.local
+    cd /etc/fail2ban/jail.d
+    wget https://raw.githubusercontent.com/fdmgit/asterisk/main/ignoreip.local
+    wget https://raw.githubusercontent.com/fdmgit/asterisk/main/pts2.local
 }
 
 inst_base () {
-      apt install curl sudo rsyslog -y
+    apt install curl sudo rsyslog -y
 }
+
+function inst_logo_styles () {
+
+###################################
+#### add logo and styles
+###################################
+
+    cd /root
+    wget https://raw.githubusercontent.com/fdmgit/virtualmin/main/logostyle.zip
+    unzip logostyle.zip
+    cp logo.png /etc/webmin/authentic-theme/
+    cp logo_welcome.png /etc/webmin/authentic-theme/
+    cp styles.css /etc/webmin/authentic-theme/
+    rm logo.png
+    rm logo_welcome.png
+    rm styles.css
+    rm logostyle.zip
+
+}
+
 
 #####################################################################################
 #                                               FreePBX 17                          #
@@ -259,5 +284,6 @@ set_swap
 #inst_f2b
 inst_webmin
 inst_base
+inst_logo_styles
 
 
