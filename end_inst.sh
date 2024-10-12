@@ -1,4 +1,4 @@
-# this a part of the installation script
+# this is a part of the installation script
 # will be automatically include in the overall installation script
 
 inst_certbot
