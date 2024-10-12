@@ -16,7 +16,7 @@ rm start_inst.sh
 rm fpbx_deb_inst.sh
 rm end_inst.sh
 
-./full_fpbx17_inst.sh --skipversion
+./full_fpbx17_inst.sh --skipversion --opensourceonly
 
 cd /root
 
