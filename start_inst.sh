@@ -181,20 +181,23 @@ closing_msg () {
 ######################################################
 
     cd /root
-    rm ast_fpbx_d12_v2.sh
-    rm setup-repos.sh
+    #rm ast_fpbx_d12_v2.sh
+    #rm setup-repos.sh
 
-    
-    # Retrieve the IP address
-    ip_address=$(hostname -I | awk '{print $1}')
-    
+    # Closing message
+    host_name=$(hostname | awk '{print $1}')
     echo ""
-    
     echo -e "${YELLOW}ATTENTION\\n"
     echo -e "${GREEN}The port for SSH has changed. To login use the following comand:\\n"
-    echo -e "        ssh root@${ip_address} -p 49153${NC}\\n"
+    echo -e "${CYAN}        ssh root@${host_name} -p 49153${NC}\\n"
     echo ""
-    echo -e "${GREEN}To login in Webmin use https://${ip_address}:10000${NC}\\n"
+    echo -e "${GREEN} Webmin page is reachable by entering:\\n"
+    echo -e "${CYAN}        https://${host_name}:10000"
+    echo -e "${NC}\\n"
+    echo -e "End Time:" "$(date +"%d.%m.%Y %T")"
+    echo ""
+    echo ""
+}
 }
 
 set_swap () {
