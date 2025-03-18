@@ -5,7 +5,7 @@ inst_certbot
 inst_f2b_jails
 inst_locate
 cd /root
-wget https://raw.githubusercontent.com/fdmgit/asterisk/main/inst_logo
+#wget https://raw.githubusercontent.com/fdmgit/asterisk/main/inst_logo
 closing_msg
 
 #reboot
