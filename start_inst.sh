@@ -196,7 +196,6 @@ closing_msg () {
     echo ""
     echo ""
 }
-}
 
 set_swap () {
 
