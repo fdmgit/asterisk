@@ -168,8 +168,8 @@ inst_webmin () {
 	###########################
 
 	apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions unzip shared-mime-info
-	curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
-	echo "y" | sh setup-repos.sh
+        curl -o webmin-setup-repo.sh https://raw.githubusercontent.com/webmin/webmin/master/webmin-setup-repo.sh
+	echo "y" | sh webmin-setup-repos.sh
 	apt-get install webmin --install-recommends -y
     sleep 30
  }
