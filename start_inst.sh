@@ -218,7 +218,7 @@ set_swap () {
 }
 
 inst_certbot () {
-    apt install certbot -y
+    apt install certbot python3-certbot-apache -y
 }
 
 
