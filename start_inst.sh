@@ -176,6 +176,51 @@ inst_webmin () {
         sleep 30
  }
 
+ function inst_php82() {
+
+
+    #apt-get install php8.2-{bcmath,bz2,cgi,curl,dba,fpm,gd,gmp,igbinary,imagick,imap,intl,ldap,mbstring} -y
+    #apt-get install php8.2-{mysql,odbc,opcache,pspell,readline,redis,soap,sqlite3,tidy,xml,xmlrpc,xsl,zip} -y
+
+    cat >>/etc/php/8.2/apache/php.ini <<'EOF'
+
+[PHP]
+output_buffering = Off
+max_execution_time = 300
+max_input_time = 300
+memory_limit = 512M
+post_max_size = 2048M
+upload_max_filesize = 2048M
+date.timezone = Europe/Zurich
+max_input_vars = 10000
+[Session]
+session.gc_maxlifetime = 3600     
+[opcache]
+opcache.enable=1
+
+EOF
+
+    cat >>/etc/php/8.2/cli/php.ini <<'EOF'
+
+[PHP]
+output_buffering = Off
+max_execution_time = 300
+max_input_time = 300
+memory_limit = 512M
+post_max_size = 2048M
+upload_max_filesize = 2048M
+date.timezone = Europe/Zurich
+max_input_vars = 10000
+[Session]
+session.gc_maxlifetime = 3600     
+[opcache]
+opcache.enable=1
+
+EOF
+
+}
+
+
 closing_msg () {
 
 ######################################################
