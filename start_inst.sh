@@ -266,6 +266,13 @@ set_swap () {
 
 inst_certbot () {
     apt install certbot python3-certbot-apache -y
+
+    a2enmod ssl
+    a2enmod headers
+    a2enmod proxy
+    a2enmod proxy-http
+    service apache2 restart
+    
 }
 
 
