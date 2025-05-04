@@ -9,4 +9,4 @@ cd /root
 #wget https://raw.githubusercontent.com/fdmgit/asterisk/main/inst_logo
 closing_msg
 
-#reboot
+reboot
