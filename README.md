@@ -9,3 +9,8 @@ New version:
 ```
 wget https://raw.githubusercontent.com/fdmgit/asterisk/main/fpbx17_installation.sh && bash fpbx17_installation.sh
 ```
+
+Test version:
+```
+wget https://raw.githubusercontent.com/fdmgit/asterisk/main/fpbx17_inst_test.sh && bash fpbx17_inst_test.sh
+```
