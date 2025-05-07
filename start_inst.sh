@@ -347,6 +347,6 @@ set_swap
 #inst_f2b
 #inst_webmin
 inst_base
-inst_logo_styles
+#inst_logo_styles
 
 
