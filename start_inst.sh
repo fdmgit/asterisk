@@ -335,7 +335,8 @@ EOF
 
 function inst_snap_certbot () {
 
-    apt install snapd
+    apt install snapd -y
+    snap install snapd
     snap install --classic certbot
     ln -s /snap/bin/certbot /usr/bin/certbot
 
