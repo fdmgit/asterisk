@@ -26,7 +26,7 @@ chmod +x end_inst.sh
 
 source ./start_inst.sh
 #source ./fpbx_deb_inst.sh
-#source ./end_inst.sh
+source ./end_inst.sh
 
 
 
