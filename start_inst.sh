@@ -141,8 +141,9 @@ server_env () {
     cp bashrc.ini /etc/skel/.bashrc
     rm /root/bashrc.ini
     echo 'export PATH="$PATH:/root/.local/bin:/snap/bin"'  >> .bashrc
-    source ./.bashrc
-    . .bashrc
+    source /root/.bashrc
+    . /root/.bashrc
+    export PATH="$PATH:/root/.local/bin:/snap/bin"
     apt install curl sudo -y
 
     ###################################
