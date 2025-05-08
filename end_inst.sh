@@ -3,7 +3,8 @@
 
 inst_php82
 inst_webmin
-inst_certbot
+#inst_certbot
+inst_snap_certbot
 inst_f2b_jails
 inst_locate
 cd /root
