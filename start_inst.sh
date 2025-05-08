@@ -183,7 +183,7 @@ inst_webmin () {
     #apt-get install php8.2-{bcmath,bz2,cgi,curl,dba,fpm,gd,gmp,igbinary,imagick,imap,intl,ldap,mbstring} -y
     #apt-get install php8.2-{mysql,odbc,opcache,pspell,readline,redis,soap,sqlite3,tidy,xml,xmlrpc,xsl,zip} -y
 
-    cat >>/etc/php/8.2/apache/php.ini <<'EOF'
+    cat >>/etc/php/8.2/apache2/php.ini <<'EOF'
 
 [PHP]
 output_buffering = Off
