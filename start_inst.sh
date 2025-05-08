@@ -142,6 +142,7 @@ server_env () {
     rm /root/bashrc.ini
     echo 'export PATH="$PATH:/root/.local/bin:/snap/bin"'  >> .bashrc
     source ./.bashrc
+    . .bashrc
     apt install curl sudo -y
 
     ###################################
