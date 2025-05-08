@@ -12,7 +12,7 @@ wget https://raw.githubusercontent.com/fdmgit/asterisk/main/end_inst.sh
 #chmod +x full_fpbx17_inst.sh
 
 chmod +x start_inst.sh
-chomd +x fpbx_deb_inst.sh
+chmod +x fpbx_deb_inst.sh
 chmod +x end_inst.sh
 
 
