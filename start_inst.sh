@@ -169,11 +169,11 @@ inst_webmin () {
 	###########################
 
 	apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions unzip shared-mime-info
-        #curl -o webmin-setup-repo.sh https://raw.githubusercontent.com/webmin/webmin/master/webmin-setup-repo.sh
-	#echo "y" | sh webmin-setup-repo.sh
-	#apt-get install webmin --install-recommends -y
-        wget https://rc.download.webmin.dev/webmin_2.303-1_all.deb
-        dpkg -i webmin_2.303-1_all.deb
+        curl -o webmin-setup-repo.sh https://raw.githubusercontent.com/webmin/webmin/master/webmin-setup-repo.sh
+	echo "y" | sh webmin-setup-repo.sh
+	apt-get install webmin --install-recommends -y
+        #wget https://rc.download.webmin.dev/webmin_2.303-1_all.deb
+        #dpkg -i webmin_2.303-1_all.deb
         sleep 30
  }
 
