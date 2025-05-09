@@ -21,7 +21,7 @@ source ./full_fpbx17_inst.sh --skipversion
 
 cd /root
 
-#rm full_fpbx17_inst.sh
+rm full_fpbx17_inst.sh
 
 reboot
 
