@@ -3,14 +3,13 @@
 
 inst_php82
 inst_webmin
-source ./
 #inst_certbot
 inst_snap_certbot
 inst_f2b_jails
 inst_locate
 cd /root
 source .bashrc
+source ./inst_logo_styles.sh
 #wget https://raw.githubusercontent.com/fdmgit/asterisk/main/inst_logo
 closing_msg
 
-#reboot
