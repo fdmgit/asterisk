@@ -3,6 +3,7 @@
 
 inst_php82
 inst_webmin
+source ./
 #inst_certbot
 inst_snap_certbot
 inst_f2b_jails
