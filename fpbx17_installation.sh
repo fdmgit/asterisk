@@ -2,7 +2,8 @@
 
 cd /root
 wget https://raw.githubusercontent.com/fdmgit/asterisk/main/start_inst.sh
-wget https://raw.githubusercontent.com/FreePBX/sng_freepbx_debian_install/master/sng_freepbx_debian_install.sh -O fpbx_deb_inst.sh
+#wget https://raw.githubusercontent.com/FreePBX/sng_freepbx_debian_install/master/sng_freepbx_debian_install.sh -O fpbx_deb_inst.sh
+wget https://github.com/FreePBX/sng_freepbx_debian_install/raw/master/sng_freepbx_debian_install.sh -O fpbx_deb_inst.sh
 tail -n +2 fpbx_deb_inst.sh > fpbx.tmp && cp fpbx.tmp fpbx_deb_inst.sh
 wget https://raw.githubusercontent.com/fdmgit/asterisk/main/end_inst.sh
 
