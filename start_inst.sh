@@ -319,6 +319,12 @@ cat >> /root/inst_logo_styles.sh <<'EOF'
 
 wget https://raw.githubusercontent.com/fdmgit/virtualmin/main/logostyle.zip
 unzip logostyle.zip
+if [ -d /etc/webmin/authentic-theme ]; then 
+		echo "authentic-theme exists"
+else
+	mkdir /etc/webmin/authentic-theme
+fi
+
 cp logo.png /etc/webmin/authentic-theme/
 cp logo_welcome.png /etc/webmin/authentic-theme/
 cp styles.css /etc/webmin/authentic-theme/
