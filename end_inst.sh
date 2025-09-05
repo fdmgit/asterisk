@@ -9,7 +9,7 @@ inst_f2b_jails
 inst_locate
 cd /root
 source .bashrc
-#source ./inst_logo_styles.sh
+source ./inst_logo_styles.sh
 #wget https://raw.githubusercontent.com/fdmgit/asterisk/main/inst_logo
 closing_msg
 
